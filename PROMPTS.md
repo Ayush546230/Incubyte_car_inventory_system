@@ -10,7 +10,7 @@ Official Public AI Chat Links:
 
 ---
 
-Let's start bootstrapping our backend server in `backend/server.js`. I want a clean Express 5 setup with json parsing, CORS enabled for local development, Morgan logging, and serving our `/uploads` folder statically for car images. Can you write the basic server bootstrap?
+Antigravity AI Assistant: Let's start bootstrapping our backend server in `backend/server.js`. I want a clean Express 5 setup with json parsing, CORS enabled for local development, Morgan logging, and serving our `/uploads` folder statically for car images. Can you write the basic server bootstrap?
 
 Here is the clean setup for `backend/server.js`:
 
