@@ -1,0 +1,11 @@
+{
+  "name": "rydex-workspace",
+  "version": "1.0.0",
+  "description": "RYDEX Car Rental Solution - Workspace Root",
+  "private": true,
+  "scripts": {
+    "dev:backend": "npm --prefix backend start",
+    "dev:frontend": "npm --prefix frontend run dev"
+  }
+}
+
