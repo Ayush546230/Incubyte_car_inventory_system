@@ -253,9 +253,11 @@ Status:      ALL TESTS PASSING (100% SUCCESS)
 In strict accordance with the Incubyte assessment guidelines, AI tools were embraced as transparent, intelligent pair-programming collaborators throughout the entire software development lifecycle. Rather than relying on AI as an autonomous code generator, it was leveraged as an interactive sounding board, real-time code reviewer, and problem-solving accelerator.
 
 ### 1. AI Tools Leveraged
-* **Google Antigravity (Advanced Agentic Coding Assistant)** — Core pair-programmer for in-editor refactoring, deep runtime debugging, full-stack workflow automation, and file editing.
-* **ChatGPT (OpenAI)** — Architectural brainstorming, TDD test suite scaffolding, and automotive domain boundary edge cases.
-* **Google Gemini** — Database resilience research, cloud hosting optimization, and REST API specification refinement.
+* **Google Gemini** — Database schemas, atomic stock decrements, Windows SRV DNS timeout fix, automotive valuations, luxury UI tokens, and printable tax invoice layouts.  
+  👉 **[🔗 View Live Public Google Gemini Chat Session](https://share.gemini.google/CqPqsKV3t2on)** *(Full transcript in [PROMPTS.md](PROMPTS.md))*
+* **ChatGPT (OpenAI GPT-4o)** — Architectural brainstorming, showroom UX, React infinite loop & socket exhaustion debugging (`EADDRINUSE`), and Vercel SPA routing.  
+  👉 **[🔗 View Live Public ChatGPT Chat Session](https://chatgpt.com/share/6adcf037-143c-83ee-a0d1-9a09a5e969fe)** *(Full transcript in [PROMPTS.md](PROMPTS.md))*
+* **Google Antigravity (Advanced Agentic Coding Assistant)** — In-editor refactoring, deep runtime debugging, full-stack workflow automation, and file editing. *(Documented in [PROMPTS.md](PROMPTS.md))*
 
 ---
 
