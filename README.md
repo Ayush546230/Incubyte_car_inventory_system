@@ -1,6 +1,9 @@
 # 🚗 Car Dealership Inventory System (RYDEX)
 > A robust, full-stack automotive dealership & inventory management platform built with **Test-Driven Development (TDD)**, **Node.js/Express**, **MongoDB Atlas**, **React 19**, and **Tailwind CSS 4**.
 
+* 🚀 **Frontend URL:** [https://incubyte-car-inventory-system.vercel.app/](https://incubyte-car-inventory-system.vercel.app/)
+* ⚙️ **Backend URL:** [https://incubyte-car-inventory-system.onrender.com](https://incubyte-car-inventory-system.onrender.com)
+
 ---
 
 ## 📸 Application Showcase
