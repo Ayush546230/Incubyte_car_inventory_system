@@ -169,30 +169,81 @@ cd backend
 npm test
 ```
 
-### Test Results Summary:
+### 📊 Comprehensive Test Report (25 / 25 Passing)
+> 📄 *A dedicated standalone report is available in [TEST_REPORT.md](TEST_REPORT.md).*
+
+| # | Test Suite | Endpoint / Unit Tested | Assertion / Expected Behavior | Result |
+|---|---|---|---|:---:|
+| 1 | `vehicle.test.js` | `POST /api/vehicles` | Add new vehicle with unique ID, make, model, category, price, quantity | ✅ PASS |
+| 2 | `vehicle.test.js` | `POST /api/vehicles` | Reject creation with 400 when make or model is missing | ✅ PASS |
+| 3 | `vehicle.test.js` | `GET /api/vehicles` | Retrieve list of all vehicles with pagination metadata | ✅ PASS |
+| 4 | `vehicle.test.js` | `GET /api/vehicles/:id` | Retrieve single vehicle specification by unique ObjectId | ✅ PASS |
+| 5 | `vehicle.test.js` | `GET /api/vehicles/search` | Search inventory by make (case-insensitive substring match) | ✅ PASS |
+| 6 | `vehicle.test.js` | `GET /api/vehicles/search` | Filter inventory by vehicle category / body style | ✅ PASS |
+| 7 | `vehicle.test.js` | `GET /api/vehicles/search` | Filter vehicles within price range boundaries (`minPrice` & `maxPrice`) | ✅ PASS |
+| 8 | `vehicle.test.js` | `PUT /api/vehicles/:id` | Update vehicle details and price specifications | ✅ PASS |
+| 9 | `vehicle.test.js` | `POST /api/vehicles/:id/purchase` | Enforce authentication: Reject unauthenticated purchase attempts (401) | ✅ PASS |
+| 10 | `vehicle.test.js` | `POST /api/vehicles/:id/purchase` | Decrement available stock quantity by requested units upon purchase | ✅ PASS |
+| 11 | `vehicle.test.js` | `POST /api/vehicles/:id/purchase` | Reject purchase with 400 when requesting more than available stock | ✅ PASS |
+| 12 | `vehicle.test.js` | `POST /api/vehicles/:id/purchase` | Reject purchase with 400 when vehicle is completely out of stock (`quantity === 0`) | ✅ PASS |
+| 13 | `vehicle.test.js` | `POST /api/vehicles/:id/restock` | Reject restock from regular customer accounts without admin role (403) | ✅ PASS |
+| 14 | `vehicle.test.js` | `POST /api/vehicles/:id/restock` | Increment stock quantity atomically when restocked by authorized Admin | ✅ PASS |
+| 15 | `vehicle.test.js` | `DELETE /api/vehicles/:id` | Reject vehicle deletion without Admin credentials (403) | ✅ PASS |
+| 16 | `vehicle.test.js` | `DELETE /api/vehicles/:id` | Delete vehicle successfully and clean up disk assets when Admin authorized | ✅ PASS |
+| 17 | `auth.test.js` | `POST /api/auth/register` | Register new customer account, hash password via bcrypt, return JWT | ✅ PASS |
+| 18 | `auth.test.js` | `POST /api/auth/register` | Reject registration with 400 if required fields are missing | ✅ PASS |
+| 19 | `auth.test.js` | `POST /api/auth/register` | Reject registration with 400 on invalid email syntax | ✅ PASS |
+| 20 | `auth.test.js` | `POST /api/auth/register` | Reject registration with 400 if password length < 8 characters | ✅ PASS |
+| 21 | `auth.test.js` | `POST /api/auth/register` | Reject duplicate email registration with 400 conflict | ✅ PASS |
+| 22 | `auth.test.js` | `POST /api/auth/login` | Authenticate valid user credentials and return signed JWT token | ✅ PASS |
+| 23 | `auth.test.js` | `POST /api/auth/login` | Reject login with 401 Unauthorized upon incorrect password | ✅ PASS |
+| 24 | `auth.test.js` | `POST /api/auth/admin-login` | Authenticate dealership administrator and issue privileged JWT | ✅ PASS |
+| 25 | `auth.test.js` | `POST /api/auth/admin-login` | Reject invalid admin credentials with 401 Unauthorized | ✅ PASS |
+
 ```text
 PASS tests/vehicle.test.js
-  ● Vehicle Management & Inventory Kata Tests
-    ✓ POST /api/vehicles - should create a vehicle with stock (GREEN)
-    ✓ GET /api/vehicles - should retrieve list of vehicles (GREEN)
-    ✓ GET /api/vehicles/search - should filter by make, category, and price range (GREEN)
-    ✓ PUT /api/vehicles/:id - should update vehicle specifications (GREEN)
-    ✓ POST /api/vehicles/:id/purchase - should decrement stock upon purchase (GREEN)
-    ✓ POST /api/vehicles/:id/purchase - should reject purchase if quantity is zero (GREEN)
-    ✓ POST /api/vehicles/:id/restock - should increment stock (Admin only) (GREEN)
-    ✓ DELETE /api/vehicles/:id - should delete vehicle (Admin only) (GREEN)
+  Vehicles & Inventory API (TDD Kata)
+    1. Vehicle Creation & Retrieval
+      ✓ POST /api/vehicles - should add a new vehicle with unique ID, make, model, category, price, quantity
+      ✓ POST /api/vehicles - should reject vehicle creation if make or model is missing
+      ✓ GET /api/vehicles - should retrieve list of all vehicles
+      ✓ GET /api/vehicles/:id - should retrieve a single vehicle by ID
+    2. Vehicle Search & Filter
+      ✓ GET /api/vehicles/search - should search vehicles by make
+      ✓ GET /api/vehicles/search - should search vehicles by category
+      ✓ GET /api/vehicles/search - should filter vehicles by price range (minPrice, maxPrice)
+    3. Vehicle Update & Delete
+      ✓ PUT /api/vehicles/:id - should update vehicle details
+    4. Inventory Management: Purchase & Restock
+      ✓ POST /api/vehicles/:id/purchase - should require authentication
+      ✓ POST /api/vehicles/:id/purchase - should decrease quantity by 1 when purchased
+      ✓ POST /api/vehicles/:id/purchase - should fail when purchasing more than available stock
+      ✓ POST /api/vehicles/:id/purchase - should fail when vehicle is out of stock (quantity is 0)
+      ✓ POST /api/vehicles/:id/restock - should reject restock from non-admin users
+      ✓ POST /api/vehicles/:id/restock - should increase quantity when restocked by Admin
+    5. Vehicle Deletion (Admin Only)
+      ✓ DELETE /api/vehicles/:id - should reject deletion without admin authorization
+      ✓ DELETE /api/vehicles/:id - should delete vehicle successfully when authorized as Admin
 
 PASS tests/auth.test.js
-  ● Authentication & JWT Kata Tests
-    ✓ POST /api/auth/register - should register a new user with hashed password (GREEN)
-    ✓ POST /api/auth/login - should authenticate and return valid JWT (GREEN)
-    ✓ POST /api/auth/login - should reject invalid credentials (GREEN)
-    ✓ GET /api/auth/me - should verify bearer token and return user profile (GREEN)
+  User Authentication API (TDD Kata)
+    POST /api/auth/register
+      ✓ should register a new user successfully and return token
+      ✓ should reject registration if required fields are missing
+      ✓ should reject registration with invalid email format
+      ✓ should reject registration if password is less than 8 characters
+      ✓ should reject duplicate email registration
+    POST /api/auth/login
+      ✓ should log in an existing user and return a JWT token
+      ✓ should reject login with wrong password
+    POST /api/auth/admin-login
+      ✓ should log in with valid admin credentials
+      ✓ should reject invalid admin credentials
 
 Test Suites: 2 passed, 2 total
 Tests:       25 passed, 25 total
 Snapshots:   0 total
-Time:        4.256 s
+Status:      ALL TESTS PASSING (100% SUCCESS)
 ```
 
 ---

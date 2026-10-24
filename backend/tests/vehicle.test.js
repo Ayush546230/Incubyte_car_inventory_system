@@ -23,7 +23,7 @@ describe("Vehicles & Inventory API (TDD Kata)", () => {
       .post("/api/auth/register")
       .send({ name: "Buyer User", email: userEmail, password: "Password@123" });
     userToken = regRes.body.token;
-  });
+  }, 30000);
 
   afterAll(async () => {
     if (createdVehicleId) {

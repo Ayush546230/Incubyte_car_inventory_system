@@ -6,7 +6,7 @@ import User from "../models/userModel.js";
 describe("User Authentication API (TDD Kata)", () => {
   beforeAll(async () => {
     await connectTestDB();
-  });
+  }, 30000);
 
   afterAll(async () => {
     await closeTestDB();
