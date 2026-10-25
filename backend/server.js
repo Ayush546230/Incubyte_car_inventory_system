@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url'
 import vehicleRouter from './routes/vehicleRoutes.js'
 import bookingRouter from './routes/bookingRoutes.js'
 import paymentRouter from './routes/paymentRoutes.js'
+import { keepServerAlive } from './utils/keepAlive.js'
 
 dotenv.config()
 
@@ -60,6 +61,7 @@ app.get('/', (req, res) => {
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server started on http://127.0.0.1:${PORT} and http://localhost:${PORT} [Dealership System Ready]`)
+    keepServerAlive()
   })
 }
 

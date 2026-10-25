@@ -1,4 +1,4 @@
-# 🧪 Automated Test Report: Car Dealership Inventory System
+# Automated Test Report: Car Dealership Inventory System
 > **Assessment:** Incubyte Full-Stack Software Craftsperson Assessment (TDD Kata)  
 > **Repository:** [Incubyte_car_inventory_system](https://github.com/Ayush546230/Incubyte_car_inventory_system)  
 > **Live Deployments:** [Frontend on Vercel](https://incubyte-car-inventory-system.vercel.app/) | [Backend on Render](https://incubyte-car-inventory-system.onrender.com)  
